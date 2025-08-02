@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Todo App</h1>
+    </header>
+    
+    <main>
+        <form action="#" autocomplete="on">
+            <label for="task-input"></label>
+            <input id="task-input" type="text" placeholder="Enter your task" required>
+            <button type="submit" class="add">Add Task</button>
+        </form>
+        <section>
+            <h2>Your Tasks</h2>
+            <div class="tasks">
+                <ul>
+                    <li>sample task<button class="edit">Edit</button><button class="delete" aria-label="Delete task">Delete</button></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Todo App</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

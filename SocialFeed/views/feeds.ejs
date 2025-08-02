@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Social Feed</title>
+</head>
+<body>
+    <h1>Social Feed</h1>
+    <form method="GET" action="/upload/new">
+        <button>Add New Post</button>
+    </form>
+    <% for(feed of feeds) { %>
+        <div class="feed" style="width: 25vw; margin-top: 5px;">
+            <h4><i class="fa-solid fa-user-circle"></i> <%= feed.username %></h4>
+            <img src="<%= feed.file_path %>" alt="Uploaded file" style="width: 100%; height: auto;">
+            <p> <%= feed.caption %> </p>
+            <p style="font-size: 0.75rem;"><%= feed.created_at.toString().split(" ").slice(0, 4).join("-") %></p>
+            <div style="display: flex; margin-top: 0.5rem; justify-content: space-between;">
+                <form method="GET" action="/feeds/likes/<%= feed.id %>">
+                    <button style="all: unset; cursor: pointer;"><i class="fa-solid fa-heart"></i> <%= feed.likes %></button>
+                </form>
+                <form method="GET" action="/feeds/comments/<%= feed.id %>">
+                    <button style="all: unset; cursor: pointer;"><i class="fa-solid fa-comment"></i></button>
+                </form>
+                <span><i class="fa-solid fa-share"></i></span>
+            </div>
+            <div style="display: flex; margin-top: 0.5rem; justify-content: space-between;">
+                <form method="GET" action="/feeds/<%= feed.id %>">
+                    <button type="submit">Edit</button>
+                </form>
+                <form method="POST" action="/feeds/<%= feed.id %>?_method=DELETE">
+                    <button>Delete</button>
+                </form>
+            </div>
+        </div>
+    <% } %>
+</body>
+</html>

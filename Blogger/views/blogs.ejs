@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogger App</title>
+</head>
+<body>
+    <h1>Blogger App</h1>
+    <form method="GET" action="/blogs/new">
+        <button>Create New Blog</button>
+    </form>
+   <div>
+    <% for(blog of blogs) { %>
+        <div style="margin-top: 1rem; padding: 1rem; border: 1px solid black;">
+            <h2><%= blog.title %></h2>
+            <div><%= blog.content %></div>
+            <p style="font-size: 0.85rem;"><b>-<%= blog.name %></b></p>
+            <p style="font-size: 0.75rem;"><%= blog.date.toString().split(" ").slice(0, 4).join("-") %></p>
+            <form method="GET" action="/blogs/view/<%= blog._id %>">
+                <button>View</button>
+            </form><br>
+            <form method="POST" action="/blogs/<%= blog._id %>?_method=DELETE">
+                <button>Delete</button>
+            </form><br>
+            <form method="GET" action="/blogs/edit/<%= blog._id %>">
+                <button>Edit</button>
+            </form>
+        </div>
+    <% } %>
+   </div>
+</body>
+</html>

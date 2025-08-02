@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog</title>
+</head>
+<body>
+    <h1>Edit Blog</h1>
+    <form method="POST" action="/blogs">
+        <input type="text" name="title" placeholder="enter title" value="<%= deletedBlog.title %>"><br><br>
+        <textarea name="content" placeholder="enter content"><%= deletedBlog.content %></textarea><br><br>
+        <input type="text" name="name" placeholder="enter your name" value="<%= deletedBlog.name %>"><br><br>
+        <button>Done</button>
+    </form>
+</body>
+</html>

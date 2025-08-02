@@ -1,0 +1,16 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+.Ticket {
+    border: 1px solid white;
+    border-radius: 14px;
+    width: 70%;
+    margin: 1rem auto;
+}
+
+.Price {
+    text-align: right;
+    padding-right: 1rem;
+}

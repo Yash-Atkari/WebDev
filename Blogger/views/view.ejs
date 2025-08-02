@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Blog</title>
+</head>
+    <body>
+        <h2>Blog id: <%= blog._id %></h2>
+        <p>Created by: <%= blog.name %></p>
+        <div style="border: 1px solid black; padding: 1rem;">
+            <h3>Title: <%= blog.title %></h3>
+            <p>Content: <%= blog.content %></p>
+            <p>Created at: <%= blog.date.toString().split(" ").slice(0, 4).join("-") %></p>
+        </div><br>
+        <form method="GET" action="/blogs">
+            <button>Back</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Add Comment</title>
+</head>
+<body>
+    <h1>Add Comment</h1>
+    <div class="feed" style="width: 25vw; margin-top: 5px;">
+        <h4><i class="fa-solid fa-user-circle"></i> <%= feed.username %></h4>
+        <img src="/<%= feed.file_path %>" alt="Uploaded file" style="width: 100%; height: auto;">
+        <% for(comment of comments) { %>
+            <span><b> <%= comment.id %>. </b></span><span><i class="fa-solid fa-user-circle"></i> <%= comment.username %></span>
+            <p><%= comment.comment %></p>
+            <p style="font-size: 0.75rem;"><%= comment.created_at.toString().split(" ").slice(0, 4).join("-") %></p>
+            <hr>
+        <% } %>
+        <form method="POST" action="/feeds/comments/<%= feed.id %>?_method=PATCH" style="display: inline;">
+            <input type="text" name="username" placeholder="enter username"><br><br>
+            <input type="text" name="comment" placeholder="add comment"><br><br>
+            <button>Add</button>
+        </form>
+        <form method="GET" action="/feeds" style="display: inline; margin-left: 250px;">
+            <button>Back</button>
+        </form>
+    </div>
+</body>
+</html>

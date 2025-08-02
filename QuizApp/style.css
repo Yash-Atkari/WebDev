@@ -1,0 +1,121 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styling */
+h1 {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+    position: relative;
+    animation: panel-effect 1.5s ease;
+}
+
+@keyframes panel-effect {
+    from {
+        top: -90px;
+    }
+    to {
+        top: 0;
+    }
+}
+
+h2 {
+    color: #4CAF50;
+    margin: 1rem auto;
+    width: 285px;
+    overflow: hidden; /* Ensures the text is hidden beyond the container width */
+    border-right: 5px solid black; /* The cursor */
+    white-space: nowrap; /* Keeps the text on one line */
+    opacity: 0; /* Initially hidden */;
+    transition: display 0s ease 1.2s ;
+    animation: fade-in 0s forwards 1.2s, typing 3s steps(20) 1.2s, blink-caret 1s step-end infinite;
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Typing effect */
+@keyframes typing {
+    from {
+        width: 0; 
+    }
+    to {
+        width: 285px;
+    }
+}
+
+/* Blinking caret effect */
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% { 
+        border-color: black;
+    }
+}
+
+/* Container styling */
+div {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    position: relative;
+    animation: fade-in 0s forwards 4.5s, panel-effect 1.5s ease 4.2s;
+}
+
+/* Question and answer styling */
+h3 {
+    color: #333;
+    display: inline-block;
+}
+
+/* Button styling */
+button {
+    /* background-color: #45a049; */
+    /* color: white; */
+    border: none;
+    border-radius: 5px solid black;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 1rem 0.5rem;
+    display: block;
+}
+
+.timer {
+    background-color: #000000;;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 1rem 0.5rem;
+    display: inline-block;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    div {
+        padding: 15px;
+    }
+}

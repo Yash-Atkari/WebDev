@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+</head>
+<body>
+    <h1>Edit Post</h1>
+    <form method="POST" action="/feeds/<%= feed[0].id %>?_method=PATCH" enctype="multipart/form-data">
+        <h3>Edit the Post of User : @<%= feed[0].username%></h3>
+        <img src="/uploads/<%= feed[0].file_path.split('/')[1] %>" alt="old image" style="width: 250px; height: auto;"><br>
+        <p>Edit Post : </p>
+        <input type="file" name="file" accept="image/*, video/*"><br><br>
+        <textarea name="caption" placeholder="Enter caption"> <%= feed[0].caption %> </textarea><br><br>
+        <button type="submit">Update</button>
+    </form>
+    <form method="GET" action="/feeds" style="margin-left: 200px;">
+        <button>Back</button>
+    </form>
+</body>
+</html>
